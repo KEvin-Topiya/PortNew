@@ -6,38 +6,229 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KEvin Topiya</title>
   <link rel="stylesheet" href="css/a.css">
-  <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/animation.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
-<body>
-  <input type="checkbox" style="display: none;" id="click">
-  <div class="topnav flx jcsb container">
-    <div>
-      <label for="click">
-        <img class="menuicn" src="assets/menu-line.svg">
-      </label>
-    </div>
+<body onload="slide(3)">
 
-    <h2 class="logo">KEvin</h2>
 
+
+  <nav class="flx jcsb">
+    <a class="btn" style="border: none;">My Resume<i class="ri-download-2-line"
+        style="font-size: 1.5rem;margin-left: 1rem;"></i> </a>
+    <h2 class="logo" onclick="setslide(1);">KEvin</h2>
     <div class="icn flx">
-      <img src="assets/github-fill.svg"/>
-      <img src="assets/linkedin-box-fill.svg"/>
-      <img src="assets/moon-fill.svg"/>
+      <i class="ri-github-fill"></i>
+      <i class="ri-linkedin-box-fill"></i>
+      <i class="ri-mail-fill"></i>
     </div>
-    
-  </div>
-  <div class="body flx">
+  </nav>
 
-    <nav>
+  <div class="null"></div>
 
-    </nav>
-    <div class="mbody">
-      
+
+  <div id="mbody" class="mbody flx">
+
+
+    <!-- home -->
+    <div id="home" class="chunk ">
+      <p>Home</p>
+      <div class="intro flx fw jcsb">
+        <div>
+          <div>
+            <p>Hello I'm &nbsp;<b> KEvin</b> </p>
+            <div class="ocp">|</div>
+          </div>
+          <br><br>
+          <i>My name is <b>KEvin</b><br>I am Web/software Developer </i>
+          <div class="blockd"></div><br><br>
+          <div>
+            <a class="btn">My Resume <i class="ri-download-2-line"></i></a>
+            &nbsp;
+            <a class="btn" onclick="setslide(1)">About me <i class="ri-arrow-right-line"></i></a>
+          </div>
+        </div>
+
+
+        <img src="assets/user.png">
+      </div>
     </div>
+
+    <!-- end home -->
+
+    <!-- about -->
+    <div class="chunk">
+      <p>Introduction</p>
+      <div class="intro abt flx fw jcsa">
+        <div>
+          <BR><BR>
+          <p> Kevin Topiya</p>
+          <BR>
+          <p style="font-size: 1.2rem; width:25vw;text-align: justify;">
+            Recent graduate with excellent research, technical,and organized practices. Skilled in working under
+            pressure and adapting to new situations problem-solving skills. Detail-oriented and able to learn
+            and new challenges to best enhance the organizational brand. concepts quickly. Highly-motivated
+            employee with to take on new challenges. Strong work ethic, adaptability, and exceptional
+            interpersonal skills. Adept at working effectively unsupervised and quickly mastering new skills.
+          </p>
+        </div>
+        <div>
+
+          <table>
+            <tr>
+              <th colspan="2"><u><b>Education:</b></u></th>
+            </tr>
+            <tr>
+              <th>RK University</th>
+              <td>2021-2024</td>
+            </tr>
+            <tr>
+              <td>BCA</td>
+              <td>9CGPA</td>
+            </tr>
+            <tr>
+              <th>Rai University</th>
+              <td>2024-2026</td>
+            </tr>
+            <tr>
+              <td>MCA</td>
+              <td>pursing</td>
+            </tr>
+          </table><br>
+          <table>
+            <tr>
+              <th colspan="2"><u><b>Languages:</b></u></th>
+            </tr>
+            <tr>
+              <td>Gujarati</td>
+              <td>⭐⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+              <td>Hindi</td>
+              <td>⭐⭐⭐⭐</td>
+            </tr>
+            <tr>
+              <td>English</td>
+              <td>⭐⭐⭐⭐</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- end about -->
+
+    <!-- skills -->
+    <div class="chunk">
+      <p>Skills</p>
+      <div class="intro skill flx fw jdc jcsb">
+          <div class="web">
+            <h2>Web Development</h2>
+            <h4>Frontend:</h4>
+            <ul>
+              <li>HTML5, CSS3, JavaScript</li>
+              <li>React, Bootstrap, Tailwind CSS,Three.js</li>
+              <li>Responsive Web Design</li>
+            </ul>
+            <h4>Backend:</h4>
+            <ul>
+              <li>Node.js, Express.js, PhP</li>
+              <li>ASP.NET, Go (Golang)</li>
+              <li>API Development</li>
+            </ul>
+            <h4>Databases:</h4>
+            <ul>
+              <li>MongoDB, MySQL,PostgreSQL,Firebase</li>
+            </ul>
+            <hr>
+          </div>
+          <div class="software">
+            <h2>Software Development</h2>
+            <h4>Programming Languages:</h4>
+            <ul>
+              <li>Golang, C/C++, Java, python</li>
+            </ul>
+            <h4>Version Control:</h4>
+            <ul>
+              <li>Git, GitHub, GitLab</li>
+            </ul>
+            <h4>Testing:</h4>
+            <ul>
+              <li>Unit Testing (Jest, Mocha,Golang)</li>
+            </ul>
+            <hr>
+          </div>
+          <div class="otherp">
+            <h2>Other Programming & Tools</h2>
+            <h4>Algorithms & Data Structures:</h4>
+            <ul>
+              <li>Golang,c++</li>
+            </ul>
+            <h4>DevOps:</h4>
+            <ul>
+              <li>Docker, CI/CD (GitHub Actions),Aws,Linux</li>
+            </ul>
+            <h4>CMS</h4>
+            <ul>
+              <li>WordPress</li>
+            </ul>
+            <hr>
+          </div>
+          <div class="design">
+            <h2> Creative & Design Tools</h2>
+            <ul>
+              <li>Figma,Spline</li>
+              <li>3D Web Design</li>
+              <li>Blender</li>
+            </ul><hr>
+          </div>
+          <div class="android">
+            <h2>Mobile Application Development</h2>
+            <ul>
+              <li>Android Development in Java with Firebase integration</li>
+            </ul><hr>
+          </div>
+
+          <div class="other">
+            <h2> Other Skills</h2>
+            <ul>
+              <li>Team collaboration and project management </li>
+              <li>Hackathon experience</li>
+            </ul><hr>
+          </div>
+
+      </div>
+
+    </div>
+    <!-- end skills -->
+    <div class="chunk">
+      <p>Projects</p>
+      <div class="intro flx fw jcsa">
+        <div class="card">
+          <h2>Balaji Masala wafers recreate</h2>
+          <a href="https://kevin-topiya.github.io/DeadSquad_ReimagineRound1/public/">- link</a><br>
+          <i>e-imagine Hackathon | August 2024 - August 2024</i>
+        </div>
+        <div class="card">p2</div>
+        <div class="card">p3</div>
+        <div class="card">p4</div>
+      </div>
+    </div>
+    <div class="chunk">Certificates</div>
+    <div class="chunk">contect me </div>
   </div>
 
+  <div class="btngrp flx jcsa">
+
+    <div class="bbtn back" onclick="slide(-1)"><i class="ri-arrow-left-line"></i></div>
+    <div class="dot" onclick="setslide(0)"></div>
+    <div class="dot" onclick="setslide(1)"></div>
+    <div class="dot" onclick="setslide(2)"></div>
+    <div class="dot" onclick="setslide(3)"></div>
+    <div class="dot" onclick="setslide(4)"></div>
+    <div class="dot" onclick="setslide(5)"></div>
+    <div class="bbtn next" onclick="slide(1)"><i class="ri-arrow-right-line"></i></div>
+  </div>
 
   <script src="js/a.js"></script>
 </body>
