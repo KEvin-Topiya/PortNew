@@ -8,20 +8,21 @@
   <link rel="stylesheet" href="css/a.css">
   <link rel="stylesheet" href="css/animation.css">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  
 </head>
 
-<body onload="slide(4)">
+<body onload="slide(5)">
+ 
 
 
-
-  <nav class="flx jcsb">
-    <a class="btn" style="border: none;">My Resume<i class="ri-download-2-line"
+   <nav class="flx jcsb">
+    <a class="btn" href="assets/Kevin.pdf" download style="border: none;">My Resume<i class="ri-download-2-line"
         style="font-size: 1.5rem;margin-left: 1rem;"></i> </a>
     <h2 class="logo" onclick="setslide(1);">KEvin</h2>
     <div class="icn flx">
-      <i class="ri-github-fill"></i>
-      <i class="ri-linkedin-box-fill"></i>
-      <i class="ri-mail-fill"></i>
+      <a href="https://github.com/KEvin-Topiya"><i class="ri-github-fill"></i></a>
+      <a href="https://www.linkedin.com/in/kevin-topiya/"><i class="ri-linkedin-box-fill"></i></a>
+      <a href="mailto:kevin53846.914@gmail.com"><i class="ri-mail-fill"></i></a>
     </div>
   </nav>
 
@@ -311,27 +312,66 @@
     <!-- end projects -->
 
     <!-- certificates -->
-    <div class="chunk">
+    <div class="chunk rel">
       <p>Certificates</p>
       <div class="proj grd rel">
+
         <div class="ccard">
-          <img src="assets/cer/bharatintern.png">
+          <img src="assets/cer/golangcertificate-1.png" onclick="showimg(this);">
         </div>
         <div class="ccard">
-          <img src="assets/cer/bharatintern.png">
+          <img src="assets/cer/goCodingame.png" onclick="showimg(this);">
         </div>
         <div class="ccard">
-          <img src="assets/cer/bharatintern.png">
+          <img src="assets/cer/Topiya KEvin-1.png" onclick="showimg(this);">
         </div>
         <div class="ccard">
-          <img src="assets/cer/bharatintern.png">
+          <img src="assets/cer/bharatintern.png" onclick="showimg(this);">
         </div>
         <div class="ccard">
-          <img src="assets/cer/bharatintern.png">
+          <img src="assets/cer/responsive-web-design-1.png" onclick="showimg(this);">
         </div>
+        <div class="ccard">
+          <img src="assets/cer/infosys springbord networkfundamnetal-1.png" onclick="showimg(this);">
+        </div>
+        <div class="ccard">
+          <img src="assets/cer/Python-Certificate-1.png" onclick="showimg(this);">
+        </div>
+        <div class="ccard">
+          <img src="assets/cer/Reskilll-Certificate.png" onclick="showimg(this);">
+        </div>
+        <div class="ccard">
+          <img src="assets/cer/se infosys_removed-1.png" onclick="showimg(this);">
+        </div>
+        <div class="ccard">
+          <img src="assets/cer/Topiya_KEvinProgramingbasics.jpg" onclick="showimg(this);">
+        </div>
+        <div class="ccard">
+          <img src="assets/cer/interland.jpeg" onclick="showimg(this);">
+        </div>
+
+      </div>
+      <div class="showimg fcenter  jcc">
+        <img src="">
+        <div class="bbtn cls"><i class="ri-close-line "></i></div>
       </div>
     </div>
-    <div class="chunk">contect me </div>
+    <div class="chunk" onload="init();animate();">
+      <p>contect me</p> 
+        <div class="contct flx fw fcenter">
+          <div class="l flx fdc">
+
+            <a href="https://maps.app.goo.gl/Vcjk7mroQWNZX4RJA"> <i class="ri-map-pin-2-fill"> <span>Rajkot</span></i></a><br>
+            <a href="https://kevin-topiya.github.io/PortNew/"> <i class="ri-global-line"> <span>website</span></i></a><br>
+            <a href="tel:6356893665"><i class="ri-phone-fill"> <span>+91 6356893665</span></i></a><br>
+            <a href="https://github.com/KEvin-Topiya"> <i class="ri-github-fill"> <span>KEvin-Topiya</span></i></a><br>
+            <a href="https://www.linkedin.com/in/kevin-topiya/"> <i class="ri-linkedin-box-fill"> <span>kevin-topiya</span></i></a><br>
+            <a href="mailto:kevin53846.914@gmail.com"> <i class="ri-mail-fill"> <span>kevin53846.914@gmail.com</span></i></a>
+            <a href="assets/Kevin.pdf" download> <i class="ri-article-fill"> <span>My resume</span></i></a>
+          </div>
+          <div class="cat"></div>
+        </div>
+    </div>
   </div>
 
   <div class="btngrp flx jcsa">
@@ -346,7 +386,10 @@
     <div class="bbtn next" onclick="slide(1)"><i class="ri-arrow-right-line"></i></div>
   </div>
 
-  <script src="js/a.js"></script>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 
+<script src="js/a.js"></script>
+<script src="js/cat.js"></script> 
 </html>
