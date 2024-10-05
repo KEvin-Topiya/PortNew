@@ -23,7 +23,7 @@
     --bg: #f5f5dc;
     --black: #000;
     --wh: #fff;
-    
+    --sf:1rem;
     --nf:1.5rem;
     --hf:4rem;
 }
@@ -34,38 +34,28 @@ body {
     min-height: 100vh;
     /* width: 100vw; */
 }
-
+.fcenter{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.rel{position: relative;}
 .flx {
     display: flex;
     align-items: center;
 }
-.fdc{
-    flex-direction: column;
-}
-.fw {
-    flex-wrap: wrap;
-}
+.fdc{flex-direction: column;}
+.fw {flex-wrap: wrap;}
 
 .null {
     height: 5rem;
     width: 100%;
 }
-
-.jcc {
-    justify-content: center;
-}
-
-.jcsa {
-    justify-content: space-around;
-}
-
-.jcse {
-    justify-content: space-evenly;
-}
-
-.jcsb {
-    justify-content: space-between;
-}
+.jcc {justify-content: center;}
+.jcsa {justify-content: space-around;}
+.jcse {justify-content: space-evenly;}
+.jcsb {justify-content: space-between;}
 
 .btn {
     text-align: center;
@@ -188,7 +178,10 @@ nav {
     padding: 1rem 10vw;
     border: 1px solid black;
     width: 100vw !important;
-
+    overflow: auto;
+}
+.chunk > p{
+    text-decoration: underline;
 }
 
 /* home */
@@ -280,14 +273,88 @@ color: var(--wh);}
 /* end skills */
 
 /* project */
+.proj{
+    margin-top: 5%;
+    overflow: scroll;
+    height: 80%;
+    grid-template-columns: auto auto auto auto;
+}
 .card{
     border: 1px solid black;
     width:  300px;
-    /* min-height: 300px; */
+    height: fit-content;
     padding: 1rem;
-
+    margin: 1rem;
+    transition: .5s;
 }
+.grd{
+    display: grid ;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 10px;
+}
+.card h2{
+}
+.card i{
+    font-size: var(--sf);
+    color: #727272;
+    
+}
+.card p{
+    font-size: var(--sf);
+    text-indent:var(--nf);
+}
+.card ul li{
+    margin:.5rem auto;
+    font-family: par;
+    list-style: none;
+}
+.card:hover{
+    scale: 110%;
+    background-color: var(--black);
+    color: var(--wh);   
+}
+.card:hover a{
+    color: white;
+}
+
 /* end project */
+
+/* certificates */
+.ccard{
+    position: relative;
+    max-width: 400px;
+    min-width: 200px;
+    height: fit-content;
+}
+.ccard img{
+    width: 100%;
+    /* aspect-ratio: 4/3; */
+}
+.ccard:hover::after{
+    content: "View";
+    position:absolute;
+    font-size: var(--nf);
+    text-decoration: underline;
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    z-index: 3;
+}
+
+.ccard:hover::before{
+    content: "";
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    background:rgba(184, 184, 184, 0.158);
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
 
 /* --end mbody--- */
 
