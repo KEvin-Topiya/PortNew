@@ -256,7 +256,7 @@ nav a {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    font-size: var(--hf);
+    font-size: var(--nf);
 }
 
 .ocp::after {
@@ -264,7 +264,7 @@ nav a {
     -webkit-animation: typing 10s linear infinite;
     animation: typing 10s linear infinite;
     content: "My name is";
-    font-size: var(--hf);
+    font-size: var(--nf);
 
 }
 
@@ -544,7 +544,7 @@ nav a {
     }
 
     .ocp::after {
-        font-size: var(--nf);
+        font-size: var(--sf);
     }
 
     nav a span {
