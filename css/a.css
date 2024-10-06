@@ -500,7 +500,7 @@ nav a {
     -ms-flex-align: start;
     align-items: start;
     /* width:300px; */
-    height: 100%;
+    height: fit-content;
 }
 
 .fox {
@@ -556,6 +556,9 @@ nav a {
         width: 100% !important;
         margin-bottom: var(--nf);
     }
+    .intro{
+        overflow: auto;
+    }
 
     .intro img {
         margin-top: var(--nf);
@@ -569,7 +572,6 @@ nav a {
     }
 
     .contct {
-        height: fit-content;
         width: 100%;
         align-items: center;
         justify-content: center;

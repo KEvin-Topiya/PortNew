@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat 3D Model</title>
+  <style>
+    /* Style for the div that will contain the 3D model */
+    #model-container {
+      width: 100%;
+      height: 500px;
+      background-color: #f0f0f0;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>3D Cat Model</h1>
+  <!-- Div where the 3D model will be displayed -->
+       <div id="model-container"></div>
+
+  <!-- Import Three.js and GLTFLoader from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script>
+   // Set up the scene, camera, and renderer
+// Scene, Camera, Renderer setup
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xffffff); // Set background to white
+
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+// Add renderer to the div
+const container = document.getElementById('model-container');
+container.appendChild(renderer.domElement);
+
+// Add ambient light
+const ambientLight = new THREE.AmbientLight(0xffffff, 1); // White light at full intensity
+scene.add(ambientLight);
+
+// Load GLTF model
+const loader = new THREE.GLTFLoader();
+let model;
+
+loader.load('js/3d/cute_fox.glb', function (gltf) {
+    model = gltf.scene;
+
+    // Auto-scale model to fit in the container
+    const box = new THREE.Box3().setFromObject(model);
+    const size = box.getSize(new THREE.Vector3()).length();
+    const scale = 2 / size;  // Adjust the model to fit the scene
+    model.scale.set(scale, scale, scale);
+
+    scene.add(model);
+    animate();
+}, undefined, function (error) {
+    console.error(error);
+});
+
+// Camera position
+camera.position.z = 5;
+
+// Mouse hover rotation logic
+let mouseX = 0;
+let mouseY = 0;
+let isHovered = false;
+
+container.addEventListener('mousemove', (event) => {
+    if (isHovered) {
+        mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+        mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+    }
+});
+
+container.addEventListener('mouseenter', () => {
+    isHovered = true;
+});
+
+container.addEventListener('mouseleave', () => {
+    isHovered = false;
+});
+
+function animate() {
+    requestAnimationFrame(animate);
+
+    if (model && isHovered) {
+        // Rotate the model on Y-axis based on mouse movement
+        model.rotation.y = mouseX * Math.PI * 0.5;  // Rotate more on Y-axis
+    }
+
+    renderer.render(scene, camera);
+}
+
+// Responsive resize
+window.addEventListener('resize', () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    renderer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+});
+
+  </script>
+
+</body>
+</html>
