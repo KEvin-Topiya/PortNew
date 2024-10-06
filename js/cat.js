@@ -2,13 +2,11 @@
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xf5f5dc); // Set background color
 
-const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-renderer.setSize(500, 500); // Set renderer size to match the div size
+const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000); // Aspect ratio will be updated later
 
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 const container = document.querySelector('.fox');
-container.style.width = '500px'; // Ensure the container is 500px
-container.style.height = '500px'; // Ensure the container is 500px
+renderer.setSize(container.clientWidth, container.clientHeight); // Set initial renderer size
 container.appendChild(renderer.domElement);
 
 // Add ambient light
@@ -21,17 +19,18 @@ let model;
 loader.load('js/3d/cute_fox.glb', (gltf) => {
     model = gltf.scene;
 
-    // Scale model to fit inside 500x500 div
-    const desiredSize = 500; // Desired size of the div
+    // Fit model inside the div container
     const box = new THREE.Box3().setFromObject(model);
     const size = box.getSize(new THREE.Vector3());
-    const scale = (desiredSize - 200) / Math.max(size.x, size.y, size.z); // Scale to fit desired size
-
-    model.scale.set(scale, scale, scale);
+    const scale = Math.min(
+        container.clientWidth / size.x,
+        container.clientHeight / size.y
+    );
+    model.scale.set(scale * 0.9, scale * 0.9, scale * 0.9); // Scale slightly smaller to fit
 
     // Center the model
     box.setFromObject(model);
-    model.position.sub(box.getCenter(new THREE.Vector3())); // Center the model
+    model.position.sub(box.getCenter(new THREE.Vector3())); // Center the model in the scene
 
     scene.add(model);
     animate();
@@ -39,8 +38,8 @@ loader.load('js/3d/cute_fox.glb', (gltf) => {
     console.error(error);
 });
 
-// Set camera position
-camera.position.z = 500; // Adjust to fit the model within the view
+// Set camera position to fit the model
+camera.position.z = 500; // Adjust camera distance based on model size
 
 // Mouse hover rotation logic
 let mouseX = 0;
@@ -48,7 +47,8 @@ let isHovered = false;
 
 container.addEventListener('mousemove', (event) => {
     if (isHovered) {
-        mouseX = (event.clientX / container.clientWidth) * 2 - 1; // Normalize mouse position
+        const rect = container.getBoundingClientRect();
+        mouseX = (event.clientX - rect.left) / container.clientWidth * 2 - 1; // Normalize mouse position
     }
 });
 
@@ -65,11 +65,21 @@ function animate() {
     renderer.render(scene, camera);
 }
 
-// Responsive resize
+// Responsive resize logic
 window.addEventListener('resize', () => {
-    const width = 500; // Keep width fixed
-    const height = 500; // Keep height fixed
-    renderer.setSize(width, height);
-    camera.aspect = width / height;
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    renderer.setSize(width, height); // Adjust renderer size
+    camera.aspect = width / height; // Adjust camera aspect ratio
     camera.updateProjectionMatrix();
+
+    // Adjust model scaling dynamically on resize
+    if (model) {
+        const box = new THREE.Box3().setFromObject(model);
+        const size = box.getSize(new THREE.Vector3());
+        const scale = Math.min(width / size.x, height / size.y);
+        model.scale.set(scale * 0.9, scale * 0.9, scale * 0.9); // Scale model to fit new size
+    }
 });
+  

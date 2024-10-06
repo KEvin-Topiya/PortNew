@@ -11,12 +11,12 @@
   
 </head>
 
-<body onload="slide(0)">
+<body>
  
 
 
    <nav class="flx jcsb">
-    <a class="btn" href="assets/Kevin.pdf" download style="border: none;">My Resume<i class="ri-download-2-line"
+    <a class="btn" href="assets/Kevin.pdf" download style="border: none;display: block;"><span>My Resume</span><i class="ri-download-2-line"
         style="font-size: 1.5rem;margin-left: 1rem;"></i> </a>
     <h2 class="logo" onclick="setslide(0);">KEvin</h2>
     <div class="icn flx">
@@ -41,10 +41,10 @@
             <p>Hello I'm &nbsp;<b> KEvin</b> </p>
             <div class="ocp">|</div>
           </div>
-          <br><br>
+          <br>
           <i>My name is <b>KEvin</b><br>I am Web/software Developer </i>
-          <div class="blockd"></div><br><br>
-          <div>
+          <div class="blockd"></div><br>
+          <div class="flx jcsafw">
             <a class="btn">My Resume <i class="ri-download-2-line"></i></a>
             &nbsp;
             <a class="btn" onclick="setslide(1)">About me <i class="ri-arrow-right-line"></i></a>
@@ -63,10 +63,9 @@
       <p>Introduction</p>
       <div class="intro abt flx fw jcsa">
         <div>
-          <BR><BR>
           <p> Kevin Topiya</p>
           <BR>
-          <p style="font-size: 1.2rem; width:25vw;text-align: justify;">
+          <p style="font-size: 1.2rem; width:25vw;text-align: justify;" class="par">
             Recent graduate with excellent research, technical,and organized practices. Skilled in working under
             pressure and adapting to new situations problem-solving skills. Detail-oriented and able to learn
             and new challenges to best enhance the organizational brand. concepts quickly. Highly-motivated
@@ -122,7 +121,7 @@
     <!-- skills -->
     <div class="chunk">
       <p>Skills</p>
-      <div class="intro skill flx fw jdc jcsb">
+      <div class=" skill flx fw jdc jcsb">
           <div class="web">
             <h2>Web Development</h2>
             <h4>Frontend:</h4>
@@ -356,11 +355,12 @@
         <div class="bbtn cls"><i class="ri-close-line "></i></div>
       </div>
     </div>
-    <div class="chunk" onload="init();animate();">
-      <p>contect me</p> 
-        <div class="contct flx fw fcenter">
-          <div class="l flx fdc">
 
+
+    <div class="chunk">
+      <p>contect me</p> 
+        <div class="contct flx fw jcc">
+          <div class="l flx fdc">
             <a href="https://maps.app.goo.gl/Vcjk7mroQWNZX4RJA"> <i class="ri-map-pin-2-fill"> <span>Rajkot</span></i></a><br>
             <a href="https://kevin-topiya.github.io/PortNew/"> <i class="ri-global-line"> <span>website</span></i></a><br>
             <a href="tel:6356893665"><i class="ri-phone-fill"> <span>+91 6356893665</span></i></a><br>
@@ -369,7 +369,9 @@
             <a href="mailto:kevin53846.914@gmail.com"> <i class="ri-mail-fill"> <span>kevin53846.914@gmail.com</span></i></a>
             <a href="assets/Kevin.pdf" download> <i class="ri-article-fill"> <span>My resume</span></i></a>
           </div>
-          <div class="fox"></div>
+          <div class="fox">
+          </div>
+          </div>
         </div>
     </div>
   </div>
@@ -388,6 +390,7 @@
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 
 <script src="js/a.js"></script>
