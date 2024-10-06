@@ -564,6 +564,9 @@ nav a {
     .card {
         width: 90%;
     }
+    .home{
+        flex-wrap: wrap;
+    }
 
     .contct {
         height: fit-content;
