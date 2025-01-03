@@ -276,7 +276,7 @@ footer .l{
 footer .l a{
     font-size:2vh;
 }
-footer .l a span,i{
+footer .l a span,footer .l a i{
 
     color: var(--bg);
 }
