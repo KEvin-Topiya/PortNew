@@ -57,7 +57,7 @@ body{
 /*------------------------------*/
 header{
     background: var(--bg);
-    width: 100%;
+    width: 100vw;
     position: fixed;
     top:0;
     border-bottom: 1px solid black;
@@ -131,6 +131,7 @@ section > p:first-of-type{
 section > div:nth-of-type(2){
 height:calc(92vh - 5%);
 display: flex;
+flex-wrap: wrap;
 /* align-items: center; */
 width: 100%;
 justify-content: space-evenly;
@@ -140,6 +141,7 @@ justify-content: space-evenly;
 
 #home{
     height: 100vh;
+    padding: 1rem;
     /* height: fit-content; */
 }
 #home img{
@@ -287,6 +289,9 @@ footer .r{
     display: flex;
     justify-content: center;
 }
+footer >div{
+    border-top:1px solid var(--bg) ;
+}
 .fox{
     height: 100%;
     width: 100%;
@@ -366,16 +371,53 @@ button[type="submit"]:hover {
 }
 
 /* Responsive Design */
+.cpy{
+   text-align: center !important;
+   width: 100%;
+}
 @media (max-width: 768px) {
+
+    nav{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .lnk{
+        display: none;
+    }
+    #home article{
+        flex-basis: 100%;
+    }
+    #home figure{
+        flex-basis: 100%;
+    }
+    #home article p{
+        font-size: var(--nf);
+    }
+    #home .opc{
+        font-size: var(--sf);
+    }
+    .ab{
+        grid-template-columns: 1fr;
+        padding: .5rem;
+    }
+    #skill .skg .web{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+    footer{
+        grid-template-columns:1fr;
+    }
+    footer div{
+        width: 90vw;
+    }
+    .fox{
+        width: 90vw;
+        height: 90vw;
+    }
     table {
-        width: 90%; /* Adjust for smaller screens */
+        width: 90vw; 
     }
 
     td {
         padding: 0.5rem;
     }
-}
- .cpy{
-    text-align: center !important;
-    width: 100%;
 }
