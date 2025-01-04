@@ -50,7 +50,7 @@
     // Fetch feedback data from the API
     async function fetchFeedback() {
       try {
-        const response = await fetch('/api/feedback');
+        const response = await fetch('https://feedbackapi-2ril.onrender.com/api/feedback');
         if (!response.ok) {
           throw new Error('Failed to fetch feedback data');
         }
