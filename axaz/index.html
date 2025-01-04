@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Table</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .delete-btn {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .delete-btn:hover {
+      background-color: #cc0000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Feedback List</h1>
+  <table id="feedbackTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th>Created At</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Feedback data will be populated here -->
+    </tbody>
+  </table>
+
+  <script>
+    // Fetch feedback data from the API
+    async function fetchFeedback() {
+      try {
+        const response = await fetch('/api/feedback');
+        if (!response.ok) {
+          throw new Error('Failed to fetch feedback data');
+        }
+        const feedbackData = await response.json();
+        populateTable(feedbackData);
+      } catch (error) {
+        console.error('Error fetching feedback:', error);
+      }
+    }
+
+    // Populate the table with feedback data
+    function populateTable(data) {
+      const tbody = document.querySelector('#feedbackTable tbody');
+      tbody.innerHTML = ''; // Clear existing rows
+
+      data.forEach(feedback => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${feedback.name}</td>
+          <td>${feedback.email}</td>
+          <td>${feedback.message}</td>
+          <td>${new Date(feedback.createdAt).toLocaleString()}</td>
+          <td>
+            <button class="delete-btn" onclick="deleteFeedback('${feedback._id}')">Delete</button>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    // Delete feedback by ID
+    async function deleteFeedback(id) {
+      try {
+        const response = await fetch(`/api/feedback/${id}`, {
+          method: 'DELETE',
+        });
+        if (!response.ok) {
+          throw new Error('Failed to delete feedback');
+        }
+        alert('Feedback deleted successfully!');
+        fetchFeedback(); // Refresh the table after deletion
+      } catch (error) {
+        console.error('Error deleting feedback:', error);
+      }
+    }
+
+    // Fetch feedback data when the page loads
+    document.addEventListener('DOMContentLoaded', fetchFeedback);
+  </script>
+</body>
+</html>
