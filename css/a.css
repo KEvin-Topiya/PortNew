@@ -157,7 +157,6 @@ justify-content: space-evenly;
 }
 #home >div:nth-of-type(2){
     align-items: center;
-    margin-top:-3rem;
 }
 #home article{
 
@@ -393,7 +392,7 @@ button[type="submit"]:hover {
         font-size: var(--nf);
     }
     #home .opc{
-        font-size: var(--sf);
+        font-size: 1rem;
     }
     .ab{
         grid-template-columns: 1fr;
@@ -402,6 +401,9 @@ button[type="submit"]:hover {
     #skill .skg .web{
         display: grid;
         grid-template-columns: repeat(3,1fr);
+    }
+    #skill .skg .web img{
+        width:25vw;
     }
     footer{
         grid-template-columns:1fr;
