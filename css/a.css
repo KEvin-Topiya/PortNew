@@ -369,6 +369,39 @@ button[type="submit"]:hover {
     color: #f5f5dc; /* Light text on hover */
 }
 
+
+/* Projects */
+.prjbox{
+padding:1rem;
+display: grid !important;
+justify-content:space-evenly ;
+grid-template-columns: repeat(3,auto);
+column-gap: 2rem;
+row-gap: 2rem;
+max-height: 95vh;
+overflow-y: auto;
+/* border: 2px solid red; */
+}
+.prj{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1rem;
+    height: fit-content;
+    ;
+}
+.prj a{
+    display: block;
+    margin: auto;
+    text-align: center;
+    border: 1px solid black ;
+    /* width: fit-content  ; */
+    padding: .5rem;
+    border-radius: 5px;
+}
+.prj a:hover{
+    background: black;
+    color: white;
+}
 /* Responsive Design */
 .cpy{
    text-align: center !important;
@@ -421,5 +454,8 @@ button[type="submit"]:hover {
 
     td {
         padding: 0.5rem;
+    }
+    .prjbox{
+        grid-template-columns: 1fr;
     }
 }
